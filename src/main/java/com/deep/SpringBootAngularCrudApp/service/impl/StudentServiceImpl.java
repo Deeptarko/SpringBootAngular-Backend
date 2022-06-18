@@ -2,6 +2,7 @@ package com.deep.SpringBootAngularCrudApp.service.impl;
 
 import com.deep.SpringBootAngularCrudApp.entity.Student;
 import com.deep.SpringBootAngularCrudApp.exception.StudentNotFound;
+import com.deep.SpringBootAngularCrudApp.payload.DeleteResponse;
 import com.deep.SpringBootAngularCrudApp.repository.StudentRepository;
 import com.deep.SpringBootAngularCrudApp.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +27,10 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public String deleteStudentById(Long id) {
+    public DeleteResponse deleteStudentById(Long id) {
         studentRepository.deleteById(id);
-        return "Student with the id "+id+" successfully deleted";
+        String msg= "Student with the id "+id+" successfully deleted";
+        return new DeleteResponse(msg);
     }
 
     @Override

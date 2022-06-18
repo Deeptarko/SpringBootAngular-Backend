@@ -8,6 +8,6 @@ public class SpringBootAngularCrudAppApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootAngularCrudAppApplication.class, args);
-	}
+	}git 
 
 }
