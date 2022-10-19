@@ -5,12 +5,14 @@ import com.deep.SpringBootAngularCrudApp.exception.StudentNotFound;
 import com.deep.SpringBootAngularCrudApp.payload.DeleteResponse;
 import com.deep.SpringBootAngularCrudApp.repository.StudentRepository;
 import com.deep.SpringBootAngularCrudApp.service.StudentService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class StudentServiceImpl implements StudentService {
 
     @Autowired

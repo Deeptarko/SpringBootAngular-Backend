@@ -4,6 +4,8 @@ import com.deep.SpringBootAngularCrudApp.entity.Student;
 import com.deep.SpringBootAngularCrudApp.payload.DeleteResponse;
 import com.deep.SpringBootAngularCrudApp.service.StudentService;
 import com.deep.SpringBootAngularCrudApp.service.impl.StudentServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,17 +17,20 @@ import java.util.List;
 @RequestMapping("/api")
 @CrossOrigin
 public class StudentController {
-
+    Logger logger= LoggerFactory.getLogger(StudentController.class);
     @Autowired
     private StudentService studentService;
 
     @GetMapping("/home")
     public ResponseEntity<String> homePage(){
+
+        logger.trace("There is an debug");
         return ResponseEntity.ok("This is home page");
     }
 
     @PostMapping("/saveStudent")
     public ResponseEntity<Student> saveStudent(@RequestBody Student s){
+
         Student st=studentService.saveStudent(s);
         return new ResponseEntity<>(st, HttpStatus.CREATED);
     }
